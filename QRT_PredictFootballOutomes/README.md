@@ -14,3 +14,11 @@ final strong learner that would beat XGBoost.
 2. Private dataset by QRT (Benchmark public leaderboard **45.65%**, optimized AdaBoost **46.89%**)
 3. #1 Ranked model 49.27% - **Difference of 2.38%**
 
+## Reflections
+I had various approaches for this task. I initially tried preprocessing data for XGBoost but thought of using AdaBoost because it could learn from
+weak models to obtain a strong model. AdaBoost turned out to be a better model, but the predictions on the private dataset paled in comparison to its
+results during the testing phase. This could be due to changes in patterns for the private dataset that my model did not learn from. Additionally,
+since my model was tasked to ONLY predict the AWAY team winning, I thought I could also combine this with a model that would predict the HOME team winning.
+I was dead wrong. The merged model ended up with a 27% accuracy for the private dataset, which in retrospect, made me realize that the errors during training
+compound over multiple models, thereby making a merged model highly inefficient. My key takeaway was to just never merge models and instead use extensive 
+feature engineering and data preprocessing techniques to build one or various robust models.
