@@ -7,7 +7,7 @@ football match given some data. Overall objective was a 3-class classification p
 ## Approach
 My approach to beating the benchmark was 3-fold: (1) preprocess the data, (2) use AdaBoost, (3) optimize AdaBoost. The idea behind this approach
 was that more finely preprocessing the data would allow me to utilize all the data, and AdaBoost would combine pre-existing weak learners into one,
-final strong learner that would beat XGBoost.
+final strong learner that would beat XGBoost. At last, I optimized my AdaBoost model using Optuna and used the optimal parameters for one final training.
 
 ## Relevant Statistics
 1. Train_test split accuracy on test set (Benchmark **47.42%**, optimized AdaBoost **70.66%**)
